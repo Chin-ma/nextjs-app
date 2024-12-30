@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,8 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'forest-primary': '#336633', // A brighter green for primary elements
+        'forest-secondary': '#66CC66', // A vivid secondary color for highlights
+        'forest-accent': '#CCFFCC', // A soft accent color for text
+        'forest-text': '#F0FFF0', // A light text color for readability
+        'forest-dark': '#254D25', // A darker shade for backgrounds
+      },
+      backgroundImage: {
+        'forest-pattern': "url('/images/forest-bg.jpg')",
+        'forest-gradient': 'linear-gradient(to bottom, rgba(26,47,17,0.9), rgba(26,47,17,0.7))',
       },
     },
   },
