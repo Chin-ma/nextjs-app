@@ -1,4 +1,5 @@
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const images = [
   { src: "/images/lushForest.jpg", alt: "Lush green forest" },
@@ -9,7 +10,7 @@ const images = [
   { src: "/images/deciduous.jpg", alt: "Deciduous" },
   { src: "/images/coniferous.jpg", alt: "Coniferous" },
   { src: "/images/himalayan.jpg", alt: "Himalayan" },
-]
+];
 
 export default function GalleryPreview() {
   return (
@@ -25,9 +26,11 @@ export default function GalleryPreview() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <img
+              <Image
                 src={image.src}
                 alt={image.alt}
+                width={500}
+                height={300}
                 className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
               />
             </motion.div>
@@ -35,6 +38,5 @@ export default function GalleryPreview() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

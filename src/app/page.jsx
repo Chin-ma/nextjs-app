@@ -6,8 +6,11 @@ import AnimatedCard from "./components/AnimatedCard"
 import HeroSection from "./components/HeroSection"
 import { useParallax } from "react-scroll-parallax"
 import ConservationSection from "./conservation/page"
-import GalleryPreview from "./gallery/page"
+import GalleryPreview from "./components/GalleryPreview"
 import Survey from "./components/Survey"
+// import dynamic from "next/dynamic"
+
+// const GalleryPreview = dynamic(() => import("./gallery/page"), { ssr: false })
 
 const ParallaxSection = ({ children, speed }) => {
   const parallax = useParallax({
