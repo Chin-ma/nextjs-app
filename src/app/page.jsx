@@ -1,33 +1,25 @@
 'use client'
 
+import dynamic from "next/dynamic"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import AnimatedCard from "./components/AnimatedCard"
 import HeroSection from "./components/HeroSection"
-import { useParallax } from "react-scroll-parallax"
-import ConservationSection from "./conservation/page"
-import GalleryPreview from "./components/GalleryPreview"
-import Survey from "./components/Survey"
+import ClientWrapper, { ParallaxSection } from "./components/ClientWrapper"
+import ForestFacts from "./components/ForestFacts"
+import TakeAction from "./components/TakeAction"
 
-
-const ParallaxSection = ({ children, speed }) => {
-  const parallax = useParallax({
-    speed: speed,
-  })
-
-  return (
-    <section ref={parallax.ref} className="py-16">
-      {children}
-    </section>
-  )
-}
+// Dynamic imports
+const ConservationSection = dynamic(() => import('./conservation/page'))
+const GalleryPreview = dynamic(() => import('./components/GalleryPreview'))
+const Survey = dynamic(() => import('./components/Survey'))
 
 export default function ForestWonders() {
   return (
-    <div id="home" className="flex flex-col min-h-screen bg-gradient-to-b from-emerald-950 to-emerald-900">
+    <ClientWrapper>
       <Header />
-      <main className="flex-grow ">
-        <ParallaxSection speed={-5}>
+      <main className="flex-grow">
+        <ParallaxSection speed={-3}>
           <div className="container mx-auto px-4">
             <HeroSection />
           </div>
@@ -58,13 +50,19 @@ export default function ForestWonders() {
           </div>
         </ParallaxSection>
         <ParallaxSection speed={-3}>
+          <ForestFacts />
+        </ParallaxSection>
+        <ParallaxSection speed={-3}>
           <ConservationSection />
         </ParallaxSection>
         <ParallaxSection speed={3}>
           <GalleryPreview />
         </ParallaxSection>
+        <ParallaxSection speed={-3}>
+          <TakeAction />
+        </ParallaxSection>
         <ParallaxSection speed={-2}>
-          <div className="container mx-auto px-4 py-16">
+          <div id="discover-more" className="container mx-auto px-4 py-16">
             <h2 className="text-3xl font-bold text-center mb-8 text-emerald-100">
               Discover More
             </h2>
@@ -100,9 +98,10 @@ export default function ForestWonders() {
             <Survey />
           </div>
         </ParallaxSection>
+        {/* <DynamicContentWrapper />  */}
       </main>
       <Footer />
-    </div>
+    </ClientWrapper>
   )
 }
 

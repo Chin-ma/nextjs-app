@@ -19,6 +19,24 @@ export default {
         'forest-pattern': "url('/images/forest-bg.jpg')",
         'forest-gradient': 'linear-gradient(to bottom, rgba(26,47,17,0.9), rgba(26,47,17,0.7))',
       },
+      animation: {
+        'gradient': 'gradient 8s linear infinite',
+      },
+      keyframes: {
+        gradient: {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          },
+        },
+      },
+      boxShadow: {
+        'glow': '0 0 15px rgba(52, 211, 153, 0.3)',
+      }
     },
   },
   plugins: [],
